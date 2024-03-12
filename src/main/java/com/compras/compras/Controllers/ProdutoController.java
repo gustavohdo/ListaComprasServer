@@ -3,13 +3,13 @@ package com.compras.compras.Controllers;
 import com.compras.compras.Models.Produto;
 import com.compras.compras.Repositories.ProdutoRepositoryInterface;
 import com.compras.compras.Services.ProdutoService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
+@CrossOrigin(origins = "*", maxAge = 3600)
 
 @RestController
 public class ProdutoController {
