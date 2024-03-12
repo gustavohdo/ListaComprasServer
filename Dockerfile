@@ -1,4 +1,4 @@
-FROM Ubuntu:latest AS Build
+FROM ubuntu:latest AS Build
 RUN apt-get update
 RUN apt-get install openjdk-17-jdk -y
 COPY . .
