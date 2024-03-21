@@ -20,23 +20,23 @@ public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
 
-    @GetMapping("/listar")
+    @GetMapping("/produtos")
     public List<Produto> listar() {
       return (List<Produto>) produtoRepositoryInterface.findAll();
     }
 
-    @GetMapping("/consultar/{id}")
+    @GetMapping("/produtos/{id}")
     public Optional<Produto> consultar(@PathVariable("id") long id) {
         return produtoRepositoryInterface.findById(id);
     }
 
-    @PostMapping("/inserir")
+    @PostMapping("/produtos")
     public Produto inserir(@RequestBody Produto produto) {
         produtoRepositoryInterface.save(produto);
         return produto;
     }
 
-    @PutMapping("editar/{id}")
+    @PutMapping("produtos/{id}")
     public Produto editar(@PathVariable("id") long id, @RequestBody Produto produto) {
         Optional<Produto> updateProduto = produtoRepositoryInterface.findById(id);
         if(updateProduto.isPresent()){
@@ -50,7 +50,7 @@ public class ProdutoController {
         return updateProduto.get();
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/produtos/{id}")
     public String deletar(@PathVariable("id") long id) {
         produtoRepositoryInterface.deleteById(id);
         return "Produto deletado com sucesso";
